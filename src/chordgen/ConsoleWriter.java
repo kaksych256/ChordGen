@@ -10,6 +10,13 @@ package chordgen;
  *
  * @author Алекс
  */
-public class ConsoleWriter {
+public class ConsoleWriter implements Writer{
+        public ConsoleWriter(){
+    }
     
+    @Override
+    public void write(String toWrite){
+       System.out.println(toWrite);
+    }
 }
+
