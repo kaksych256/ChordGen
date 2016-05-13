@@ -6,10 +6,16 @@
 
 package chordgen;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Алекс
  */
 public class Caretaker {
-    
+       public ArrayList<Memento> savedStates = new ArrayList<Memento>();
+
+   public void addMemento(Memento m) { savedStates.add(m); }
+   public Memento getMemento() { return savedStates.get(savedStates.size()-2); }
 }
+

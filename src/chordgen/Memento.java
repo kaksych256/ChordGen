@@ -11,5 +11,8 @@ package chordgen;
  * @author Алекс
  */
 public class Memento {
-    
+        public MelodyArray state;
+
+        public Memento(MelodyArray stateToSave) { state = stateToSave; }
+        public MelodyArray getSavedState() { return state; }
 }
