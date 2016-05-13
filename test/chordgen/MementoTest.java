@@ -20,17 +20,18 @@ import org.junit.Test;
 public class MementoTest implements JMC {
     
     public MementoTest() {
-        this.testMemento = new Memento();
+        MelodyArray melAr1 = new MelodyArray();
+        Note C4F = new Note(C4, SEMI_QUAVER, F);
+        melAr1.noteList.add(C4F);
+        testMemento.state = melAr1;
+        this.testMemento = new Memento(melAr1);
     }
     
     private Memento testMemento;
     
     @BeforeClass
     public static void setUpClass() {
-        MelodyArray melAr1 = new MelodyArray();
-        Note C4F = new Note(C4, SEMI_QUAVER, F);
-        melAr1.noteList.add(C4F);
-        testMemento.state = melAr1;
+
         
         
     }
@@ -48,7 +49,7 @@ public class MementoTest implements JMC {
         melAr2.noteList.add(D4F);
         MelodyArray testM = new MelodyArray();
         testM = testMemento.getSavedState();
-        assertEquals(testMemento.state, melAr2);
+        assertEquals(testM, melAr2);
         fail("The test case is a prototype.");
     }
     
