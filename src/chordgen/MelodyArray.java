@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import jm.music.data.Note;
 
 public class MelodyArray {
+
+
     ArrayList<Note> noteList = new ArrayList<>();
     
     public MelodyArray(){
