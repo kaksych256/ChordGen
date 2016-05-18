@@ -23,7 +23,42 @@ public class GenerateMelody {
     final static int NUM=8;
     
     public void getMelody(MelodyArray melody){
+    //MelodyArray melody = new MelodyArray();
+        melody.noteList.clear();
+        ArrayList<Integer> dur = new ArrayList<>();
+        int maxLength = 32;
         
+        int sum = 0;
+        
+        
+        do {
+            t=ran.nextInt(100)%maxLength + 1;
+            dur.add(t);
+            sum += t;
+        } while (sum<=maxLength);
+        
+        if (sum>maxLength){
+            int k = sum - maxLength;
+            int last = dur.size() - 1;
+            int dif = dur.get(last)-k;
+            if (dif>0)
+            { dur.set(last, dur.get(last)-k);}
+            else {dur.remove(last);}
+        }
+        
+          for (int i=0;i<dur.size();i++)
+    {
+        System.out.println(dur.get(i));
+    }
+        
+    for (int i=0;i<dur.size();i++)
+    {
+        Note temp = new Note();
+        t=ran.nextInt(100)%NUM;
+        temp.setPitch(nA.noteList.get(t).getPitch());
+        temp.setDuration(0.25*dur.get(i));
+        melody.noteList.add(temp);
+    }
     }
     
     public MelodyArray state1;
