@@ -20,16 +20,70 @@ public class GenerateMelody {
     public NoteArray nA = new NoteArray(); 
     Random ran = new Random();
     int t=0;
-    final static int NUM=8;
+    final static int NUM=4;
+    int progNum;
+    int ChordNumber = 4;
+    
+    /* 
+ Am
+ Dm
+ G
+ C
+ F
+ Em 
+ E
+     */
+    
+    
+    
     
     public void getMelody(MelodyArray melody){
     //MelodyArray melody = new MelodyArray();
-        melody.noteList.clear();
-        ArrayList<Integer> dur = new ArrayList<>();
-        int maxLength = 32;
+        
+        ArrayList<ArrayList> chordArray = new ArrayList<>();
+        
+        if (progNum == 0) 
+                {
+                    chordArray.add(nA.AmList);
+                    chordArray.add(nA.DmList);
+                    chordArray.add(nA.GList);
+                    chordArray.add(nA.CList);
+                }
+        else if (progNum == 1)
+                {
+                    chordArray.add(nA.CList);
+                    chordArray.add(nA.GList);
+                    chordArray.add(nA.AmList);
+                    chordArray.add(nA.FList);
+                }
+        else if (progNum == 2)
+                {
+                    chordArray.add(nA.AmList);
+                    chordArray.add(nA.EmList);
+                    chordArray.add(nA.FList);
+                    chordArray.add(nA.GList);
+                }
+        else if (progNum == 3)
+                {
+                    chordArray.add(nA.AmList);
+                    chordArray.add(nA.DmList);
+                    chordArray.add(nA.EmList);
+                    chordArray.add(nA.AmList);
+                }
+              
+        
         
         int sum = 0;
+        melody.noteList.clear();
         
+        
+        
+        for (int genN = 0;genN<ChordNumber;genN++)
+        {       
+        sum = 0;
+        int maxLength = 8;
+        ArrayList<Note> curGen = chordArray.get(genN);
+        ArrayList<Integer> dur = new ArrayList<>();
         
         do {
             t=ran.nextInt(100)%maxLength + 1;
@@ -45,20 +99,26 @@ public class GenerateMelody {
             { dur.set(last, dur.get(last)-k);}
             else {dur.remove(last);}
         }
-        
-          for (int i=0;i<dur.size();i++)
-    {
-        System.out.println(dur.get(i));
-    }
+    
+    
         
     for (int i=0;i<dur.size();i++)
     {
         Note temp = new Note();
         t=ran.nextInt(100)%NUM;
-        temp.setPitch(nA.noteList.get(t).getPitch());
+        temp.setPitch(curGen.get(t).getPitch());
         temp.setDuration(0.25*dur.get(i));
         melody.noteList.add(temp);
     }
+    
+        for (int i=0;i<dur.size();i++)
+    {
+        System.out.println(dur.get(i));
+    }
+    
+    }
+        
+
     }
     
     public MelodyArray state1;

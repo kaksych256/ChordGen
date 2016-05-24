@@ -17,6 +17,17 @@ import jm.util.*;
 
 public class NoteArray implements JMC {
     public static ArrayList<Note> noteList = new ArrayList<>();
+   
+    public static ArrayList<Note> AmList = new ArrayList<>();
+    public static ArrayList<Note> DmList = new ArrayList<>();
+    public static ArrayList<Note> EmList = new ArrayList<>();
+    public static ArrayList<Note> FList = new ArrayList<>();
+    public static ArrayList<Note> GList = new ArrayList<>();
+    public static ArrayList<Note> CList = new ArrayList<>();
+    
+    
+    
+    
     
     
     public NoteArray(){
@@ -36,6 +47,37 @@ public class NoteArray implements JMC {
         noteList.add(B);
         Rest rest = new Rest(0.25);
         noteList.add(rest);
+        
+        AmList.add(C);
+        AmList.add(E);
+        AmList.add(A);
+        AmList.add(rest);
+        
+        DmList.add(D);
+        DmList.add(F1);
+        DmList.add(A);
+        DmList.add(rest);
+        
+        EmList.add(E);
+        EmList.add(G);
+        EmList.add(B);
+        EmList.add(rest);
+        
+        CList.add(C);
+        CList.add(E);
+        CList.add(G);
+        CList.add(rest);
+        
+        FList.add(C);
+        FList.add(F1);
+        FList.add(A);
+        FList.add(rest);
+        
+        GList.add(D);
+        GList.add(G);
+        GList.add(B);
+        GList.add(rest);
+        
     }
     
     
