@@ -52,14 +52,8 @@ public class GenerateMelodyTest  implements JMC {
         GenerateMelody gm = new GenerateMelody();
         MelodyArray testMelody = new MelodyArray();
         gm.getMelody(testMelody);
+        assertNotNull(testMelody);
         
-        MelodyArray melAr = new MelodyArray();
-        Note CO4 = new Note(C4, SEMI_QUAVER, F);
-        melAr.noteList.add(CO4);
-        assertEquals(melAr, testMelody);
-        
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

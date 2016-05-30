@@ -20,11 +20,7 @@ import org.junit.Test;
 public class MementoTest implements JMC {
     
     public MementoTest() {
-        MelodyArray melAr1 = new MelodyArray();
-        Note C4F = new Note(C4, SEMI_QUAVER, F);
-        melAr1.noteList.add(C4F);
-        testMemento.state = melAr1;
-        this.testMemento = new Memento(melAr1);
+
     }
     
     private Memento testMemento;
@@ -43,14 +39,19 @@ public class MementoTest implements JMC {
     @Test
     public void testSomeMethod() {
         // TODO review the generated test code and remove the default call to fail.
+        MelodyArray melAr1 = new MelodyArray();
+        Note D4F = new Note(D4, SEMI_QUAVER, F);
+        melAr1.noteList.add(D4F);
+        testMemento.state = melAr1;
+        this.testMemento = new Memento(melAr1);
+        
+        
         System.out.println("equal");
         MelodyArray melAr2 = new MelodyArray();
-        Note D4F = new Note(D4, SEMI_QUAVER, F);
         melAr2.noteList.add(D4F);
         MelodyArray testM = new MelodyArray();
         testM = testMemento.getSavedState();
         assertEquals(testM, melAr2);
-        fail("The test case is a prototype.");
     }
     
 }
